@@ -1,0 +1,29 @@
+-------FETCHING DATA-------
+
+-Install axios
+-Create an apiClient
+.Use axios.create to create an object
+..Add the properties PARAMS with an object that has the property KEY {_here it goes the API KEY_} and baseURL
+-Create a component
+.Create the states
+.Create useEffect
+..Call apiClient and use GET method
+...Add the endpoint as the 1st parameter
+...Add the AbortController and pass as a 2nd argument to GET {signal: controller.signal}
+...Use THEN and CATCH
+....Define the interfaces for the response from THEN and define the GET method with main interface
+....In order for the response to work, define the interface of the State it will be stored
+....Add a block of object to catch where it checks if the error is an instanceof CancelledError, show the message
+..return a clean-up function through controller.abort()
+-Add the data in the RETURN body of the component
+-Add the error
+
+----------CREATING A CUSTOM HOOK FOR FETCHING DATA----------
+
+-Create a hook
+.Move the states
+.Move all the logic which includes useEffect,apiClient, get, then, catch
+.Move the necessary interfaces
+.Import the apiClient etc.
+.Return the necessary objects
+-In the main component bring the custom hook with the necessary OBJECTS
