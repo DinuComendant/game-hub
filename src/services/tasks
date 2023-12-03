@@ -1,0 +1,17 @@
+FILTERING GAMES BY Genre
+
+1. Create the state in parent component that accepts a Genre type parameter or null
+
+2. Create the props in GenreList that accepts a function with a parameter of type Genre and pass it to the parent component
+
+3. Pass the state from parent component to GameGrid and add it as an argument to useGames
+
+4. Add a request config to the useGames
+   .Add the parameters and arguments to useGames
+   .Add the type paramater to useData of the request config
+   .Add the properties from the request config to the GET method
+
+5. Update useEffect with dependencies
+   .Add the array of dependencies paramater to the useData
+   .Add the dependency paramater from useData to the 2nd parameter of useEffect
+   .Pass the dependency as a third parameter to the 
