@@ -16,20 +16,11 @@ const useData = <T>(
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
 
-  console.log("request config");
-  console.log(requestConfig);
-
   useEffect(
     () => {
       const controller = new AbortController();
       setLoading(true);
-      console.log("GET method");
-      console.log(
-        apiClient.get<FetchResponse<T>>(endpoint, {
-          signal: controller.signal,
-          ...requestConfig,
-        })
-      );
+
       apiClient
         .get<FetchResponse<T>>(endpoint, {
           signal: controller.signal,
@@ -37,6 +28,7 @@ const useData = <T>(
         })
         .then((res) => {
           setLoading(false);
+          console.log(res.data.results);
           setData(res.data.results);
         })
         .catch((err) => {
@@ -49,8 +41,6 @@ const useData = <T>(
     deps ? [...deps] : []
   );
 
-  console.log("data from useData");
-  console.log(data);
   return { data, error, isLoading };
 };
 
